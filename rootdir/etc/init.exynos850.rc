@@ -1,0 +1,16 @@
+# init.exynos850.rc — SM-A127F/DS specific
+
+on fs
+    mount_all /vendor/etc/fstab.exynos850 --early
+
+on late-fs
+    mount_all /vendor/etc/fstab.exynos850 --late
+
+on post-fs-data
+    mkdir /data/vendor 0771 root root
+    mkdir /data/vendor/log 0770 root system
+    mkdir /data/vendor/radio 0770 radio radio
+
+on boot
+    chown system system /sys/class/input/input0/enabled
+    chmod 0660 /sys/class/input/input0/enabled

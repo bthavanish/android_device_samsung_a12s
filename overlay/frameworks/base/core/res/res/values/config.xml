@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="config_screenDensityDpi">280</integer>
+    <bool name="config_enableBurnInProtection">false</bool>
+    <bool name="config_wifi_dual_band_support">true</bool>
+    <bool name="config_wifi_fast_bss_transition_support">true</bool>
+    <bool name="config_wifi_framework_cell_switch_needed">true</bool>
+    <integer name="config_networkNotifySwitchType">0</integer>
+    <bool name="config_voice_capable">true</bool>
+    <bool name="config_sms_capable">true</bool>
+    <integer name="config_mobile_mtu">1440</integer>
+    <bool name="config_supportNavigationKeys">false</bool>
+    <bool name="config_nfcControllerAlwaysOn">false</bool>
+    <integer name="config_defaultRefreshRate">60</integer>
+    <integer name="config_defaultPeakRefreshRate">60</integer>
+</resources>

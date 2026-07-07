@@ -1,0 +1,13 @@
+# Telephony
+ro.telephony.default_network=9,1
+telephony.lteOnCdmaDevice=0
+persist.radio.multisim.config=dsds
+
+# Media
+debug.stagefright.ccodec=0
+
+# Performance
+ro.sys.sdcardfs=false
+
+# RIL
+ro.ril.ecclist=112,911
