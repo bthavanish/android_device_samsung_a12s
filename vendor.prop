@@ -1,0 +1,18 @@
+# Security patch
+ro.vendor.build.security_patch=2024-10-01
+
+# Wi-Fi
+ro.vendor.wifi.sap.interface=wlan1
+
+# Bluetooth
+ro.bluetooth.library_name=libbluetooth.so
+
+# Build
+ro.product.vendor.brand=samsung
+ro.product.vendor.device=a12s
+ro.product.vendor.manufacturer=samsung
+ro.product.vendor.model=SM-A127F
+ro.product.vendor.name=a12sxxx
+
+# Camera
+ro.camera.enableCamera1ForExternalCamera=true
