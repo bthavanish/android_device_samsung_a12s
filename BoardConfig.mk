@@ -8,6 +8,11 @@ DEVICE_PATH := device/samsung/a12s
 
 # Inherit common Exynos 850 config
 include device/samsung/exynos850-common/BoardConfigCommon.mk
+# Kernel build glue
+TARGET_SOC                    := exynos850
+KERNEL_DEFCONFIG              := exynos850-a12snsxx_defconfig
+TARGET_KERNEL                 := samsung/a12s
+
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/a12s
