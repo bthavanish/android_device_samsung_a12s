@@ -1,0 +1,46 @@
+# ueventd.rc — SM-A127F/DS
+
+# Default permissions
+/dev/null               0666    root       root
+/dev/zero               0666    root       root
+/dev/ptmx               0666    root       root
+/dev/tty                0666    root       root
+/dev/random             0666    root       root
+/dev/urandom            0666    root       root
+/dev/ion                0660    system     system
+/dm-*                  0640    system     system
+
+# Input devices
+/dev/input/*            0660    system     input
+
+# Graphics
+/dev/graphics/*         0660    system     graphics
+/dev/mali0              0660    system     graphics
+/dev/pvr_sync           0660    system     graphics
+
+# Camera
+/dev/video*             0660    system     camera
+/dev/camera*            0660    system     camera
+
+# Audio
+/dev/snd/*              0660    system     audio
+/dev/mixer              0660    system     audio
+/dev/dsp                0660    system     audio
+
+# Bluetooth
+/dev/ttyHS*             0660    system     bluetooth
+
+# Wi-Fi
+/dev/wlan*              0660    system     wifi
+
+# NFC
+/dev/pn5xx              0660    system     nfc
+
+# RIL
+/dev/smd*               0660    radio      radio
+/dev/dlci*              0660    radio      radio
+/dev/bmd*               0660    radio      radio
+/dev/*rpc*              0660    radio      radio
+
+# USB
+/dev/usb-ffs/*          0660    system     usb
