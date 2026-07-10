@@ -9,6 +9,7 @@ $(call inherit-product, device/samsung/exynos850-common/exynos850-common.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_ENFORCE_RRO_TARGETS := *
+PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 
 # Rootdir / init
 PRODUCT_PACKAGES += \

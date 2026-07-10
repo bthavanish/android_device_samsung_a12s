@@ -25,7 +25,7 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=exynos850 androidboot.selinux=enfor
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 
 # Super partition size
-BOARD_SUPER_PARTITION_SIZE := 5343659212
+BOARD_SUPER_PARTITION_SIZE := 5343657984
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304)
 
 # Partition filesystem types
