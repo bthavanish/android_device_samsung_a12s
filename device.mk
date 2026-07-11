@@ -14,9 +14,10 @@ PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 # Rootdir / init
 PRODUCT_PACKAGES += \
     fstab.exynos850 \
+    fstab.exynos850.vendor \
     init.exynos850.rc \
     init.exynos850.usb.rc \
-    ueventd.rc
+    ueventd.exynos850.rc
 
 # Audio configs
 PRODUCT_COPY_FILES += \
@@ -31,17 +32,15 @@ PRODUCT_COPY_FILES += \
 # NFC (NXP PN557)
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2-service.samsung \
-    com.android.nfc_extras \
     NfcNci \
     Tag
 
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml
+    frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml
 
 # Fingerprint (side-mounted, A12s uses side-key fingerprint)
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.samsung
+    android.hardware.biometrics.fingerprint-service.samsung
 
 # Permissions
 PRODUCT_COPY_FILES += \

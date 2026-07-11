@@ -23,6 +23,6 @@
 ## Build
 ```bash
 source build/envsetup.sh
-lunch lineage_a12s-userdebug
+lunch lineage_a12s-ap2a-userdebug
 mka bacon
 ```

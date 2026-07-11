@@ -12,4 +12,4 @@ cd "$(dirname "$0")/../../.."
 source build/envsetup.sh
 lunch lineage_a12s-ap2a-userdebug
 
-m -j$(nproc)
+m -j8

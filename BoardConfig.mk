@@ -5,9 +5,11 @@
 # BoardConfig.mk — Samsung Galaxy A12s (SM-A127F/DS)
 
 DEVICE_PATH := device/samsung/a12s
+BOARD_VENDOR := samsung
 
 # Inherit common Exynos 850 config
 include device/samsung/exynos850-common/BoardConfigCommon.mk
+
 # Kernel build glue
 TARGET_SOC                    := exynos850
 KERNEL_DEFCONFIG              := exynos850-a12snsxx_defconfig
