@@ -20,6 +20,10 @@ TARGET_KERNEL                 := samsung/a12s
 TARGET_KERNEL_SOURCE := kernel/samsung/a12s
 TARGET_KERNEL_CONFIG := exynos850-a12snsxx_defconfig
 
+# Kernel Clang toolchain
+TARGET_KERNEL_CLANG_VERSION := r450784e
+TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-r450784e
+
 # Device-specific kernel cmdline
 BOARD_KERNEL_CMDLINE := androidboot.hardware=exynos850 androidboot.selinux=enforce loop.max_part=7
 

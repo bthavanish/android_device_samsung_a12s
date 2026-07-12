@@ -1,28 +1,43 @@
-# Device Tree — Samsung Galaxy A12s (SM-A127F/DS)
+# LineageOS 21 — Samsung Galaxy A12s (a12s)
 
-| Field | Value |
-|---|---|
-| Device | Samsung Galaxy A12s (A12 Nacho) |
-| Model | SM-A127F/DS |
-| Codename | a12s |
-| SoC | Exynos 850 (s5e3830) |
-| CPU | Cortex-A55 x 8 |
+## Device specifications
+| Feature | Specification |
+|---------|--------------|
+| SoC | Samsung Exynos 850 (s5e3830) |
+| CPU | 8x Cortex-A55 @ 2.0GHz |
 | GPU | Mali-G52 MP1 |
-| Screen | 720 x 1600 @ 60Hz |
-| RAM | 3/4/6 GB |
-| Android base | 13 (LineageOS 21) |
-| Kernel | kernel/samsung/a12s |
-| Branch | lineage-21 |
+| RAM | 3-6 GB |
+| Storage | 32-128 GB |
+| Display | 6.5" 720x1600 PLS TFT |
+| Kernel | Linux 4.19 |
+| Fingerprint | Side-mounted |
+| NFC | NXP PN557 |
 
-## Dependencies
-- device/samsung/exynos850-common
-- vendor/samsung/a12s
-- vendor/samsung/exynos850-common
-- kernel/samsung/a12s
+## Build instructions
 
-## Build
-```bash
+### Initialize repo
+```
+repo init -u https://github.com/LineageOS/android.git -b lineage-21.0
+```
+
+### Clone device repos (or use breakfast)
+```
+breakfast a12s
+```
+
+### Extract proprietary blobs
+```
+cd vendor/samsung/a12s
+./extract-files.sh
+cd ../..
+```
+
+### Build
+```
 source build/envsetup.sh
 lunch lineage_a12s-ap2a-userdebug
 mka bacon
 ```
+
+## Maintainer
+bthavanish
