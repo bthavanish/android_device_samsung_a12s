@@ -12,7 +12,6 @@ ro.product.vendor.brand=samsung
 ro.product.vendor.device=a12s
 ro.product.vendor.manufacturer=samsung
 ro.product.vendor.model=SM-A127F
-ro.product.vendor.name=a12sxxx
 
 # Camera
 ro.camera.enableCamera1ForExternalCamera=true
