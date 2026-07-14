@@ -1,7 +1,5 @@
 # Proprietary files for Samsung Galaxy A12s (SM-A127F/DS)
 # Generated from Android 13 stock firmware (A127FXXSDDXJ5)
-
-# Shared libraries - lib64
 vendor/lib64/android.frameworks.cameraservice.common@2.0.so
 vendor/lib64/android.frameworks.cameraservice.device@2.0.so
 vendor/lib64/android.frameworks.cameraservice.device@2.1.so
@@ -348,8 +346,6 @@ vendor/lib64/vendor.samsung.hardware.wifi@2.2.so
 vendor/lib64/vendor.samsung.hardware.wifi@2.3.so
 vendor/lib64/vendor.samsung_slsi.hardware.ExynosHWCServiceTW@1.0.so
 vendor/lib64/vendor.samsung_slsi.hardware.epic@1.0.so
-
-# Shared libraries - lib
 vendor/lib/android.frameworks.cameraservice.common@2.0.so
 vendor/lib/android.frameworks.cameraservice.device@2.0.so
 vendor/lib/android.frameworks.cameraservice.device@2.1.so
@@ -583,8 +579,6 @@ vendor/lib/vendor.samsung.hardware.tlc.ucm@2.0.so
 vendor/lib/vendor.samsung_slsi.hardware.ExynosA2DPOffload@2.0.so
 vendor/lib/vendor.samsung_slsi.hardware.epic@1.0.so
 vendor/lib/vintf-codecsolution-V2-ndk.so
-
-# HAL implementations
 vendor/lib/hw/android.hardware.audio.effect@2.0-impl.so
 vendor/lib/hw/android.hardware.audio.effect@6.0-impl.so
 vendor/lib/hw/android.hardware.audio@2.0-impl.so
@@ -640,54 +634,6 @@ vendor/lib64/hw/vendor.samsung.hardware.audio@1.0-impl.so
 vendor/lib64/hw/vendor.samsung.hardware.gnss@2.1-impl.so
 vendor/lib64/hw/vibrator.default.so
 vendor/lib64/hw/vulkan.mali.so
-
-# Binaries
-vendor/bin/abox_log
-vendor/bin/add.pb
-vendor/bin/applypatch
-vendor/bin/argosd
-vendor/bin/awk
-vendor/bin/boringssl_self_test32
-vendor/bin/boringssl_self_test64
-vendor/bin/cass
-vendor/bin/cbd
-vendor/bin/cld
-vendor/bin/dumpsys
-vendor/bin/emservice
-vendor/bin/enable_test_mode.sh
-vendor/bin/fsdbg_vendor
-vendor/bin/hostapd_cli
-vendor/bin/install-recovery.sh
-vendor/bin/iod
-vendor/bin/logwrapper
-vendor/bin/main_abox
-vendor/bin/moredump
-vendor/bin/moredump.bin
-vendor/bin/mx_log_collection.sh
-vendor/bin/mx_logger.sh
-vendor/bin/mx_logger_dump.sh
-vendor/bin/secril_config_svc
-vendor/bin/sh
-vendor/bin/slsi_wlan_udi_log
-vendor/bin/slsi_wlan_udi_log_decode
-vendor/bin/snap_utility_64
-vendor/bin/test_model.json
-vendor/bin/toolbox
-vendor/bin/toybox_vendor
-vendor/bin/tzdaemon
-vendor/bin/tzts_daemon
-vendor/bin/vaultkeeperd
-vendor/bin/vendor.samsung.hardware.security.engmode@1.0-service
-vendor/bin/vendor.samsung.hardware.security.proca@2.0-service
-vendor/bin/vendor.samsung.hardware.security.vaultkeeper@2.0-service
-vendor/bin/vendor.samsung.hardware.security.widevine.keyprov@1.0-service
-vendor/bin/vndservice
-vendor/bin/vndservicemanager
-vendor/bin/wlbtd
-vendor/bin/wpa_cli
-vendor/bin/wvkprov
-
-# Configuration files
 vendor/etc/a2dpsink_audio_policy_configuration.xml
 vendor/etc/abox_debug.xml
 vendor/etc/audio_board_info.xml
@@ -896,4 +842,3 @@ vendor/firmware/tdnr_S5KGM2.json
 vendor/firmware/tdnr_SR846.json
 vendor/firmware/txse1.bin
 vendor/firmware/txse2.bin
-

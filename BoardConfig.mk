@@ -10,62 +10,61 @@ BOARD_VENDOR := samsung
 # Inherit common Exynos 850 config
 include device/samsung/exynos850-common/BoardConfigCommon.mk
 
-# Kernel build glue
-TARGET_SOC                    := exynos850
-KERNEL_DEFCONFIG              := exynos850-a12snsxx_defconfig
-TARGET_KERNEL                 := samsung/a12s
-
+# OTA assert
+TARGET_OTA_ASSERT_DEVICE := a12s
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/samsung/a12s
 TARGET_KERNEL_CONFIG := exynos850-a12snsxx_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/a12s
 
-# Kernel Clang toolchain
-TARGET_KERNEL_CLANG_VERSION := r450784e
-TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-r450784e
+# Kernel - use prebuilt kernel for reliable boot
+TARGET_FORCE_PREBUILT_KERNEL := true
+ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
+BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+BOARD_INCLUDE_DTB_IN_BOOTIMG :=
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
+BOARD_KERNEL_SEPARATED_DTBO :=
+endif
 
-# Device-specific kernel cmdline
+# Kernel cmdline
 BOARD_KERNEL_CMDLINE := androidboot.hardware=exynos850 androidboot.selinux=enforce loop.max_part=7
 
-# DTBO
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
+# Partition sizes (matching stock firmware)
+BOARD_BOOTIMAGE_PARTITION_SIZE := 46137344
+BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 55574528
+BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 
-# Super partition size
-BOARD_SUPER_PARTITION_SIZE := 5343657984
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := $(shell expr $(BOARD_SUPER_PARTITION_SIZE) - 4194304)
-
-# Partition filesystem types
-BOARD_SYSTEMIMAGE_PARTITION_TYPE   := ext4
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDORIMAGE_PARTITION_TYPE   := ext4
-BOARD_PRODUCTIMAGE_PARTITION_TYPE  := ext4
-BOARD_ODMIMAGE_PARTITION_TYPE      := ext4
-
-TARGET_COPY_OUT_VENDOR  := vendor
-TARGET_COPY_OUT_PRODUCT := product
-TARGET_COPY_OUT_ODM     := odm
-
-# System props
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
-
-# AVB
-BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
-BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA2048
-BOARD_AVB_BOOT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 1
-
-# Vendor blobs use PRODUCT_COPY_FILES (pre-Android-14 style)
-BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+# Super partition
+BOARD_SUPER_PARTITION_SIZE := 5557452800
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 5557450752
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := \
+    system \
+    system_ext \
+    vendor \
+    product \
+    odm
 
 # Display (720p)
 TARGET_SCREEN_DENSITY := 280
 
-# Device-specific sepolicy
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+# System props
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
 
-# Recovery fstab
+# Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.exynos850
+BOARD_INCLUDE_RECOVERY_DTBO := true
 
 # Security patch
 VENDOR_SECURITY_PATCH := 2024-10-01
+
+# VINTF
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
+
+# Inherit the proprietary files (use -include so build doesn't fail if missing)
+-include vendor/samsung/a12s/BoardConfigVendor.mk

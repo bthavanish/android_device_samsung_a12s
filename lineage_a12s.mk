@@ -3,11 +3,17 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Inherit device config
-$(call inherit-product, device/samsung/a12s/device.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/non_ab_device.mk)
 
-# Inherit LineageOS config
+# Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
+# Inherit from a12s device
+$(call inherit-product, device/samsung/a12s/device.mk)
 
 # Screen
 TARGET_SCREEN_HEIGHT := 1600
@@ -22,7 +28,4 @@ PRODUCT_MANUFACTURER := samsung
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="a12sxxx-user 13 TP1A.220624.014 A127FXXSDDXJ5 release-keys"
-
-BUILD_FINGERPRINT := "samsung/a12sxxx/a12s:13/TP1A.220624.014/A127FXXSDDXJ5:user/release-keys"
+BUILD_FINGERPRINT := samsung/a12snsxx/a12s:13/TP1A.220624.014/A127FXXSDDXJ5:user/release-keys
