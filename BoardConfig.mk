@@ -35,7 +35,7 @@ BOARD_KERNEL_SEPARATED_DTBO :=
 endif
 
 # Kernel cmdline
-BOARD_KERNEL_CMDLINE := androidboot.hardware=exynos850 androidboot.selinux=enforce loop.max_part=7
+BOARD_KERNEL_CMDLINE := androidboot.hardware=exynos850 androidboot.selinux=enforce loop.max_part=7 androidboot.boot_devices=12100000.dwmmc0
 
 # Partition sizes (matching stock firmware)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 46137344
