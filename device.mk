@@ -49,3 +49,7 @@ PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/samsung/a12s/a12s-vendor.mk)
+
+# Dynamic partitions
+PRODUCT_BUILD_SUPER_PARTITION := true
+PRODUCT_USE_DYNAMIC_PARTITIONS := true

@@ -13,6 +13,12 @@ include device/samsung/exynos850-common/BoardConfigCommon.mk
 # OTA assert
 TARGET_OTA_ASSERT_DEVICE := a12s
 
+# A12s is an A/BOTA-LESS (A-only) dynamic-partition device.
+# board_config.mk defaults AB_OTA_UPDATER to true, which builds the super
+# partition as A/B (system_a/system_b). Stock firmware and the fstab are
+# A-only, so force A-only super (partitions named system/vendor/...).
+AB_OTA_UPDATER := false
+
 # Kernel
 TARGET_KERNEL_CONFIG := exynos850-a12snsxx_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/a12s
@@ -29,17 +35,17 @@ BOARD_KERNEL_SEPARATED_DTBO :=
 endif
 
 # Kernel cmdline
-BOARD_KERNEL_CMDLINE := androidboot.hardware=exynos850 androidboot.selinux=enforce loop.max_part=7
+BOARD_KERNEL_CMDLINE := androidboot.hardware=exynos850 androidboot.selinux=enforce loop.max_part=7 androidboot.boot_devices=12100000.dwmmc0
 
 # Partition sizes (matching stock firmware)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 46137344
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 55574528
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 
 # Super partition
 BOARD_SUPER_PARTITION_SIZE := 5557452800
-BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 5557450752
+BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 2642411520
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     system_ext \
